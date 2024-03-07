@@ -1,0 +1,15 @@
+Rails.application.routes.draw do
+  get 'document/index'
+  get 'document/new'
+  get 'document/edit'
+  root 'setup#index'
+  get 'setup/login'
+  post 'setup/login'
+  get 'setup/employees'
+  post 'setup/employees'
+  get 'setup/signup'
+  post 'setup/signup'
+  post 'setup/create'
+  post 'setup/delete'
+  get 'setup/delete'
+end

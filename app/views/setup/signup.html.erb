@@ -1,0 +1,25 @@
+<%= form_tag('/setup/create', method: "post") do %>
+    <div>
+        <%= label_tag(:name, "Name:") %>
+        <%= text_field_tag(:name) %>
+    </div>
+    <div>
+        <%= label_tag(:department, "Department:") %>
+        <%= text_field_tag(:department) %>
+    </div>
+    <div>
+        <%= label_tag(:email, "Email:") %>
+        <%= text_field_tag(:email) %>
+    </div>
+    <div>
+        <%= label_tag(:mobile_number, "Phone Number:") %>
+        <%= text_field_tag(:mobile_number) %>
+    </div>
+    <div>
+        <%= label_tag(:password, "Password:") %>
+        <%= password_field_tag(:password) %>
+    </div>
+    <div>
+        <%= submit_tag("Signup") %>
+    </div>
+<% end %>

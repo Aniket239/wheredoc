@@ -1,0 +1,50 @@
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Email</th>
+        <th>Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= employee.employee_name %></td>
+          <td><%= employee.employee_department %></td>
+          <td><%= employee.employee_email %></td>
+          <td><%= employee.employee_mobile_number%></td>
+          <td class="actions">
+            <%= link_to "Edit" %>
+            <%= link_to "Delete", setup_delete_path(employee), method: :delete, data: {confirm: "Are you sure?"}%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <div class="actions">
+    <%= link_to "New User", setup_signup_url %>
+    <%= link_to "Login", setup_login_url %>
+  </div>
+  
