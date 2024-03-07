@@ -1,0 +1,51 @@
+    <h2>Update Profile</h2>
+    <%= form_tag('/setup/update', method: "post") do %>
+        <%= hidden_field_tag :employee_id, @employee.id %>
+        <div>
+            <%= label_tag(:name, "Name:") %>
+            <%= text_field_tag :name, @employee.employee_name %>
+        </div>
+        <div>
+            <%= label_tag(:department, "Department:") %>
+            <%= text_field_tag :department, @employee.employee_department %>
+        </div>
+        <div>
+            <%= label_tag(:email, "Email:") %>
+            <%= text_field_tag :email, @employee.employee_email %>
+        </div>
+        <div>
+            <%= label_tag(:mobile_number, "Phone Number:") %>
+            <%= text_field_tag :mobile, @employee.employee_mobile_number %>
+        </div>
+        <div>
+            <%= label_tag(:new_password, "New Password:") %>
+            <%= password_field_tag :password ,"",{id:"new_password"}%>
+        </div>
+        <div>
+            <%= label_tag(:confirm_new_password, "Confirm New Password:") %>
+            <%= password_field_tag :confirm_new_password, "", {id: "confirm_new_password", onkeyup: "check_password()"} %>
+        </div>
+        <div id="error_message" style="display: none;">
+            <p>Password doesn't match</p>
+        </div>
+        <div>
+            <%= submit_tag("Update") %>
+        </div>
+    <% end %>
+    <script>
+        function check_password()
+        {
+            const new_password=document.getElementById("new_password");
+            const confirm_new_password=document.getElementById("confirm_new_password");
+            console.log("confirm-value",confirm_new_password.value);
+            console.log("new-pass-value",new_password.value);
+                if (confirm_new_password.value===new_password.value)
+                {
+                    document.getElementById("error_message").style.display="none";
+                }
+                else
+                {
+                document.getElementById("error_message").style.display="block";
+                }
+        }
+    </script>

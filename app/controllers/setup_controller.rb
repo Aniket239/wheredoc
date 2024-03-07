@@ -27,4 +27,12 @@ class SetupController < ApplicationController
     employee.destroy
     redirect_to setup_employees_path
   end
+  def edit
+    @employee= Employee.find(params[:format])
+  end
+  def update
+    employee= Employee.find(params[:employee_id])
+    employee.update(employee_name: params[:name],employee_department: params[:department],employee_email: params[:email], employee_password: params[:password], employee_mobile_number: params[:mobile])
+    redirect_to setup_employees_path
+  end
 end

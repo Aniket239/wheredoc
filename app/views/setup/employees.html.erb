@@ -35,8 +35,8 @@
           <td><%= employee.employee_email %></td>
           <td><%= employee.employee_mobile_number%></td>
           <td class="actions">
-            <%= link_to "Edit" %>
-            <%= link_to "Delete", setup_delete_path(employee), method: :delete, data: {confirm: "Are you sure?"}%>
+            <%= link_to "Edit", setup_edit_path(employee) %>
+            <%= link_to "Delete", setup_delete_path(employee)%>
           </td>
         </tr>
       <% end %>

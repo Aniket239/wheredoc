@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   post 'setup/create'
   post 'setup/delete'
   get 'setup/delete'
+  get 'setup/edit'
+  post 'setup/edit'
+  get 'setup/update'
+  post 'setup/update'
 end
