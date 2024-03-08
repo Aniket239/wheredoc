@@ -1,50 +1,132 @@
 <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-    .actions {
-      display: flex;
-      gap: 10px;
-    }
-  </style>
-  
-  <table>
-    <thead>
+/* General page styling for dark AMOLED theme */
+body {
+  background-color: #000; /* AMOLED black */
+  color: #fff; /* White text color */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centering content */
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #555; /* Slightly lighter border for visibility */
+  padding: 8px 16px;
+  text-align: left;
+}
+
+th {
+  background-color: #222; /* Dark grey header */
+}
+
+/* Button styling */
+.edit-btn, .delete-btn, .signup-btn, .login-btn {
+  text-decoration: none;
+  color: #fff; /* White text */
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 5px;
+  border: 2px solid transparent; /* Base border style */
+}
+
+.edit-btn {
+  background-color: #4CAF50; /* Green background */
+  border-color: #46A049; /* Slightly darker border */
+}
+
+.delete-btn {
+  background-color: #f44336; /* Red background */
+  border-color: #d32f2f; /* Slightly darker border */
+}
+
+.signup-btn, .login-btn {
+  background-color: #2196F3; /* Blue background */
+  border-color: #1976D2; /* Slightly darker border */
+}
+
+/* Hover effects for buttons */
+.edit-btn:hover, .delete-btn:hover, .signup-btn:hover, .login-btn:hover {
+  opacity: 0.9; /* Slight transparency on hover */
+}
+
+.actions {
+  display: flex;
+  justify-content: center; /* Center buttons */
+  flex-wrap: wrap; /* Wrap buttons to the next line on small screens */
+}
+
+/* Responsive table */
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  th, td {
+    text-align: right; /* Align text for readability on small screens */
+  }
+
+  td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  td:last-child {
+    text-align: center;
+  }
+}
+
+</style>
+<h1>All employees</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Email</th>
+      <th>Number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |employee| %>
       <tr>
-        <th>Name</th>
-        <th>Department</th>
-        <th>Email</th>
-        <th>Number</th>
-        <th>Actions</th>
+        <td>
+          <%= employee.employee_name %>
+        </td>
+        <td>
+          <%= employee.employee_department %>
+        </td>
+        <td>
+          <%= employee.employee_email %>
+        </td>
+        <td>
+          <%= employee.employee_mobile_number%>
+        </td>
+        <td class="actions">
+          <%= link_to "Edit", setup_edit_path(employee), class: "edit-btn" %>
+          <%= link_to "Delete", setup_delete_path(employee), class: "delete-btn" %>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <% @employees.each do |employee| %>
-        <tr>
-          <td><%= employee.employee_name %></td>
-          <td><%= employee.employee_department %></td>
-          <td><%= employee.employee_email %></td>
-          <td><%= employee.employee_mobile_number%></td>
-          <td class="actions">
-            <%= link_to "Edit", setup_edit_path(employee) %>
-            <%= link_to "Delete", setup_delete_path(employee)%>
-          </td>
-        </tr>
       <% end %>
-    </tbody>
-  </table>
-  
-  <div class="actions">
-    <%= link_to "New User", setup_signup_url %>
-    <%= link_to "Login", setup_login_url %>
-  </div>
-  
+  </tbody>
+</table>
+
+<div class="actions">
+  <%= link_to "New User", setup_signup_url, class: "signup-btn" %>
+  <%= link_to "Login", setup_login_url, class: "login-btn" %>
+</div>

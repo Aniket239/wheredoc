@@ -1,3 +1,85 @@
+    <style>
+        body {
+            background-color: #000; /* Dark background for AMOLED screens */
+            color: #fff; /* White text color */
+            font-family: Arial, sans-serif; /* Modern, sans-serif font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .update_container{
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        form {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        div {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff; /* White label color */
+        }
+        
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #fff; /* White border */
+            background-color: #222; /* Slightly lighter dark shade for input background */
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green background */
+            color: #fff;
+            border: 2px solid #fff; /* White border */
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        #error_message {
+            color: #ff3860; /* Bright red color for error messages */
+            font-weight: bold;
+        }
+        
+        /* Shake animation */
+        @keyframes shake {
+          0%, 100% {transform: translateX(0);}
+          10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+          20%, 40%, 60%, 80% {transform: translateX(10px);}
+        }
+        
+        .shake {
+          animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+          transform: translate3d(0, 0, 0);
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+        
+    </style>
+    <div class="update_container">
     <h2>Update Profile</h2>
     <%= form_tag('/setup/update', method: "post") do %>
         <%= hidden_field_tag :employee_id, @employee.id %>
@@ -32,6 +114,7 @@
             <%= submit_tag("Update") %>
         </div>
     <% end %>
+</div>
     <script>
         function check_password()
         {
@@ -42,10 +125,12 @@
                 if (confirm_new_password.value===new_password.value)
                 {
                     document.getElementById("error_message").style.display="none";
+                    confirm_new_password.classList.remove("shake"); // Remove shake class
                 }
                 else
                 {
                 document.getElementById("error_message").style.display="block";
+                confirm_new_password.classList.add("shake"); // Remove shake class
                 }
         }
     </script>

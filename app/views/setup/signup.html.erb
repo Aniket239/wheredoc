@@ -1,26 +1,153 @@
-<h2>Sign Up</h2>
-<%= form_tag('/setup/create', method: "post") do %>
-    <div>
-        <%= label_tag(:name, "Name:") %>
-        <%= text_field_tag(:name) %>
-    </div>
-    <div>
-        <%= label_tag(:department, "Department:") %>
-        <%= text_field_tag(:department) %>
-    </div>
-    <div>
-        <%= label_tag(:email, "Email:") %>
-        <%= text_field_tag(:email) %>
-    </div>
-    <div>
-        <%= label_tag(:mobile_number, "Phone Number:") %>
-        <%= text_field_tag(:mobile_number) %>
-    </div>
-    <div>
-        <%= label_tag(:password, "Password:") %>
-        <%= password_field_tag(:password) %>
-    </div>
-    <div>
-        <%= submit_tag("Signup") %>
-    </div>
-<% end %>
+<style>
+/* Dark AMOLED Theme with Stylish Elements */
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Pure black for AMOLED */
+    color: #fff; /* White text */
+    font-family: 'Arial', sans-serif;
+}
+
+.signup_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.signup_container h2 {
+    color: #FFFFFF;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333; /* Darker element background */
+    color: #fff; /* White input text */
+    border: 1px solid #fff; /* White border */
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type='number'] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+.buttons{
+    width: 108%;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    color: #fff; /* White text */
+    width: 100%;
+    text-align: center;
+}
+input[type="submit"],.login_button {
+    width: 50%;
+    height: 40px;
+    margin: 20px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #1E90FF; /* Stylish blue */
+    color: #fff; /* White text */
+    cursor: pointer;
+    border: 2px solid #fff; /* White border */
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="submit"]:hover,.login_button:hover {
+    background-color: #4169E1; /* Darker blue on hover */
+}
+
+#error_message p {
+    color: #FF6347; /* Tomato for errors */
+    margin-top: 10px;
+}
+
+/* Shake animation for error */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+.shake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+</style>
+<div class="signup_container">
+    <h2>Sign Up</h2>
+    <%= form_tag('/setup/create', method: "post" ) do %>
+        <div>
+            <%= label_tag(:name, "Name:" ) %>
+                <%= text_field_tag :name,"",:required=>true %>
+        </div>
+        <div>
+            <%= label_tag(:department, "Department:" ) %>
+                <%= text_field_tag :department,"",:required=>true %>
+        </div>
+        <div>
+            <%= label_tag(:email, "Email:" ) %>
+                <%= text_field_tag :email,"",:required=>true,type:'email' %>
+        </div>
+        <div>
+            <%= label_tag(:mobile_number, "Phone Number:" ) %>
+                <%= text_field_tag :mobile_number,"",:required=>true,type:'number' %>
+        </div>
+        <div>
+            <%= label_tag(:password, "Password:" ) %>
+                <%= password_field_tag :password, "", {id: "password",:required=>true} %>
+        </div>
+        <div>
+            <%= label_tag(:confirm_new_password, "Confirm Password:" ) %>
+                <%= password_field_tag :confirm_new_password, "" , {id: "confirm_password" ,onkeyup: "check_password()",:required=>true } %>
+        </div>
+        <div id="error_message" style="display: none;">
+            <p>Password doesn't match</p>
+        </div>
+        <div class="buttons">
+            <%= submit_tag("Signup") %>
+            <%= link_to "Login", setup_login_url,class:"login_button" %>
+        </div>
+        <% end %>
+</div>
+<script>
+    function check_password()
+    {
+        const password=document.getElementById("password");
+        const confirm_password=document.getElementById("confirm_password");
+            if (confirm_password.value===password.value)
+            {
+                document.getElementById("error_message").style.display="none";
+                confirm_password.classList.remove("shake"); // Remove shake class
+            }
+            else
+            {
+            document.getElementById("error_message").style.display="block";
+            confirm_password.classList.add("shake"); // Remove shake class
+            }
+    }
+</script>
