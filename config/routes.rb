@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'document/index'
-  get 'document/new'
-  get 'document/edit'
   root 'setup#index'
   get 'setup/login'
   post 'setup/login'
@@ -16,4 +13,16 @@ Rails.application.routes.draw do
   post 'setup/edit'
   get 'setup/update'
   post 'setup/update'
+
+  get 'document/index'
+  post 'document/index'
+  get 'document/new'
+  post 'document/new'
+  get 'document/edit'
+  post 'document/edit'
+  get  'document/create'
+  post 'document/create'
+  get 'document/alldocuments'
+  post 'document/alldocuments'
+
 end

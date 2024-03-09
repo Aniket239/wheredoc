@@ -1,2 +1,11 @@
-<h1>Document#index</h1>
-<p>Find me in app/views/document/index.html.erb</p>
+<style>
+
+</style>
+
+<div>
+    <h1>Documents</h1>
+    <%= link_to "New Document", document_new_path %>
+    <%= link_to "All Documents", document_alldocuments_path %>
+    <%= link_to "Pending Accept", document_new_path %>
+    <%= link_to "Pending Forward", document_new_path %>
+</div>

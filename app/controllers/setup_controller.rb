@@ -19,7 +19,7 @@ class SetupController < ApplicationController
    password=params[:password]
    employee = Employee.find_by(employee_email: email)
    if employee!=nil && employee.employee_password==password
-      redirect_to setup_employees_path
+      redirect_to document_index_path
    end
   end
   def delete 
