@@ -1,1 +1,9 @@
 <h2>New Document</h2>
+<%= form_tag('/document/new', method:"post") do %>
+<%= label_tag(:doc_name, 'Document Name:') %>
+<%= label_tag(:department, 'Department:') %>
+<%= select_tag :employee_department, options_for_select(@unique_departments), { prompt: 'Select Department' } %>
+<%= label_tag(:doc_name, 'Approval From:') %>
+<%= select_tag :employee_name, options_for_select(@unique_employees), { prompt: 'Select Employee' } %>
+<%= submit_tag("Submit") %>
+<% end %>
