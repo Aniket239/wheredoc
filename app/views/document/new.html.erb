@@ -1,9 +1,34 @@
+<style>
+    .new_document{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+</style>
+
+
+<div class="new_document">
 <h2>New Document</h2>
 <%= form_tag('/document/new', method:"post") do %>
-<%= label_tag(:doc_name, 'Document Name:') %>
-<%= label_tag(:department, 'Department:') %>
-<%= select_tag :employee_department, options_for_select(@unique_departments), { prompt: 'Select Department' } %>
-<%= label_tag(:doc_name, 'Approval From:') %>
-<%= select_tag :employee_name, options_for_select(@unique_employees), { prompt: 'Select Employee' } %>
+<%= label_tag('Document Name:') %>
+<%= text_field_tag :document_name, ""%><br>
+<%= label_tag('Document Number:') %>
+<%= text_field_tag :document_number, ""%><br>
+<%= label_tag('Amount:') %>
+<%= number_field_tag :amount, ""%><br>
+<%= label_tag('Department:') %>
+<%= select_tag :employee_department, options_for_select(@unique_departments), { prompt: 'Select Department' } %><br>
+<%= label_tag('Approval From:') %>
+<%= select_tag :employee_name, options_for_select(@unique_employees), { prompt: 'Select Employee' } %><br>
+<%= label_tag('Document Submission Date:') %>
+<%= date_field_tag :submission_date %><br>
 <%= submit_tag("Submit") %>
 <% end %>
+</div>

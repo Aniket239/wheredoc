@@ -5,6 +5,7 @@ class CreateDocuments < ActiveRecord::Migration[7.1]
       t.integer :doc_id
       t.string :doc_name
       t.float :doc_amount
+      t.date :submission_date
 
       t.timestamps
     end
