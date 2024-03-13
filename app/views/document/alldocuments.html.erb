@@ -28,6 +28,7 @@
                 <td></td>
                 <td><%= document.submission_date %></td>
                 <td><%= link_to 'Accept'%></td>
+                <td><%= link_to 'Reject', document_delete_path(document) %></td>
             </tr>
             <% end%>
         </tbody>

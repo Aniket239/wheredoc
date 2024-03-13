@@ -6,13 +6,12 @@ class DocumentController < ApplicationController
   end
 
   def new
-    @unique_departments = Employee.select(:employee_department).distinct.pluck(:employee_department)
+    @unique_departments = Department.select(:name).distinct.pluck(:name)
     @unique_employees = Employee.select(:employee_name).distinct.pluck(:employee_name)
     p "------------param------------"
     p params
     p "------------param------------"
     p document = Document.new
-    
     p document.doc_id = params[:document_number]
     p document.doc_name = params[:document_name]
     p document.doc_amount = params[:amount]
@@ -29,6 +28,11 @@ class DocumentController < ApplicationController
   
   def update
 
+  end
+  def delete
+    document = Document.find(params[:format])
+    document.destroy
+    redirect_to document_alldocuments_path
   end
 
 end
