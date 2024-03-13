@@ -14,17 +14,22 @@
                 <th>Amount</th>
                 <th>Approval From</th>
                 <th>Date</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
+            <% @documents.each do |document| %>
             <tr>
+                <td><%= document.id %></td>
+                <td><%= document.doc_id %></td>
                 <td></td>
+                <td><%= document.doc_name %></td>
+                <td><%= document.doc_amount %></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><%= document.submission_date %></td>
+                <td><%= link_to 'Accept'%></td>
             </tr>
+            <% end%>
         </tbody>
     </table>
 </div>
