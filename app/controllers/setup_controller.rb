@@ -4,6 +4,9 @@ class SetupController < ApplicationController
   def employees
     @employees = Employee.all
   end
+  def signup
+    @department = Department.select(:name)
+  end
   def create
     employee = Employee.new
     employee.employee_name = params[:name]

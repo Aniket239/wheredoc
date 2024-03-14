@@ -101,13 +101,14 @@ input[type="submit"]:hover,.login_button:hover {
 <div class="signup_container">
     <h2>Sign Up</h2>
     <%= form_tag('/setup/create', method: "post" ) do %>
+    <%= hidden_field_tag :department_id, @department.ids %>
         <div>
             <%= label_tag(:name, "Name:" ) %>
                 <%= text_field_tag :name,"",:required=>true %>
         </div>
         <div>
             <%= label_tag(:department, "Department:" ) %>
-                <%= text_field_tag :department,"",:required=>true %>
+            <%= select_tag :employee_department, options_for_select(@department.pluck(:name)), { prompt: 'Select Department' } %><br>
         </div>
         <div>
             <%= label_tag(:email, "Email:" ) %>

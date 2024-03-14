@@ -1,2 +1,5 @@
-<h1>Company#new</h1>
-<p>Find me in app/views/company/new.html.erb</p>
+<%= form_tag('/company/create',method:"post") do%>
+<%= label_tag('Company Name') %>
+<%= text_field_tag :name, '',:required=>true %><br>
+<%= submit_tag("Submit")%>
+<% end%>

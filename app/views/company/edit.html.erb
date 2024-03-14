@@ -1,2 +1,6 @@
-<h1>Company#edit</h1>
-<p>Find me in app/views/company/edit.html.erb</p>
+<%= form_tag('/company/update',method:'post') do%>
+<%= hidden_field_tag :company_id,@company.id %>
+<%= label_tag('Company Name')%>
+<%= text_field_tag :name,@company.name,:required=>true%><br>
+<%= submit_tag('Submit')%>
+<% end%>

@@ -1,2 +1,6 @@
-<h1>Department#edit</h1>
-<p>Find me in app/views/department/edit.html.erb</p>
+<%= form_tag('/department/update', method:"post") do%>
+<%= hidden_field_tag :department_id, @department.id%>
+<%= label_tag('Department:')%>
+<%= text_field_tag :department,@department.name,:required=>true%><br>
+<%= submit_tag ("Submit")%>
+<% end %>
