@@ -11,6 +11,7 @@ class SetupController < ApplicationController
     employee = Employee.new
     employee.employee_name = params[:name]
     employee.employee_email = params[:email]
+    employee.department = params[:employee_department]
     employee.employee_mobile_number = params[:mobile_number]
     employee.employee_password = params[:password]
     employee.save
