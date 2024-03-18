@@ -20,10 +20,18 @@ class SetupController < ApplicationController
   def login
    email=params[:email]
    password=params[:password]
-   employee = Employee.find_by(employee_email: email)
+   p "============== employee =================="
+   p employee = Employee.find_by(employee_email: email)
+   p "================== employee =============="
    if employee!=nil && employee.employee_password==password
+      log_in(employee)
       redirect_to document_index_path
    end
+  end
+  def logout
+    log_out
+    reset_session
+    redirect_to setup_login_path
   end
   def delete 
     employee= Employee.find(params[:format])

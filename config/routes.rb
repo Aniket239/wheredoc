@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   get 'setup/login'
   post 'setup/login'
+  get 'setup/logout'
+  post 'setup/logout'
   get 'setup/employees'
   post 'setup/employees'
   get 'setup/signup'

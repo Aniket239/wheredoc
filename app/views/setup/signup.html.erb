@@ -25,7 +25,7 @@ label {
     margin-top: 10px;
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], .select {
     width: 100%;
     padding: 10px;
     margin-top: 3px;
@@ -104,7 +104,7 @@ input[type="submit"]:hover,.login_button:hover {
         </div>
         <div>
             <%= label_tag(:department, "Department:" ) %>
-            <%= select_tag :employee_department, options_for_select(@department.pluck(:name)), { prompt: 'Select Department' } %><br>
+            <%= select_tag :employee_department, options_for_select(@department.pluck(:name)), prompt: 'Select Department', class: 'select' %><br>
         </div>
         <div>
             <%= label_tag(:email, "Email:" ) %>
