@@ -2,25 +2,31 @@ class DocumentController < ApplicationController
   def index
   end
   def alldocuments
-    @documents = Document.all
+    @documents = Document.includes(:department, :employee).all
+
   end
 
   def new
-    @unique_departments = Department.select(:name).distinct.pluck(:name)
-    @unique_employees = Employee.select(:employee_name).distinct.pluck(:employee_name)
-    document = Document.new
-    document.doc_id = params[:document_number]
-    document.doc_name = params[:document_name]
-    document.doc_amount = params[:amount]
-    document.submission_date = params[:submission_date] 
-    document.save
+    # @unique_departments = Department.select(:name).distinct.pluck(:name)
+    # @unique_employees = Employee.select(:employee_name).distinct.pluck(:employee_name)
+
+    @unique_departments = Department.department_list
+    @unique_employees = Employee.employee_list
 
   end
 
   def edit
   end
-  def create
-
+  def create 
+    document = Document.new
+    document.doc_id = params[:document_number]
+    document.doc_name = params[:document_name]
+    document.doc_amount = params[:amount]
+    document.department_id = params[:employee_department_id]
+    document.employee_id = params[:employee_name_id]
+    document.submission_date = params[:submission_date] 
+    document.save
+    redirect_to document_alldocuments_path
   end
   
   def update

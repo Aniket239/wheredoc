@@ -22,10 +22,10 @@
             <tr>
                 <td><%= document.id %></td>
                 <td><%= document.doc_id %></td>
-                <td></td>
+                <td><%= document.department&.name%></td>
                 <td><%= document.doc_name %></td>
                 <td><%= document.doc_amount %></td>
-                <td></td>
+                <td><%= document.employee&.employee_name%></td>
                 <td><%= document.submission_date %></td>
                 <td><%= link_to 'Accept'%></td>
                 <td><%= link_to 'Reject', document_delete_path(document) %></td>
