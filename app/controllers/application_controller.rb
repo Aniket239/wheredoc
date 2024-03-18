@@ -20,8 +20,8 @@ class ApplicationController < ActionController::Base
   
     def current_user
       p "======================== current user ================================="
-      @current_user ||= Employee.find_by(id: session[:user_id]) if session[:user_id]
-      p @current_user
+      @current_user_email ||= Employee.where(id: session[:user_id]).select(:employee_email).first&.employee_email if session[:user_id]
+      p @current_user_email
       p "======================== current user ================================="
     end
   
