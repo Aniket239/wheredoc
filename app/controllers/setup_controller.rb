@@ -1,4 +1,6 @@
 class SetupController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:login, :signup, :create, :update]
+
   def index
   end
   def employees

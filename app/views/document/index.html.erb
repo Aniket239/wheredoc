@@ -5,8 +5,8 @@
     <%= link_to "Pending Accept", document_new_path %>
     <%= link_to "Pending Forward", document_new_path %>
     <%= link_to "logout", setup_logout_path %>
-    <% if @current_user_email %>
-        <p>Welcome, <%= @current_user_email %></p>
+    <% if current_user %>
+        <p>Welcome, <%= current_user %></p>
     <% else %>
         <p>Welcome, Guest!</p>
     <% end %>
