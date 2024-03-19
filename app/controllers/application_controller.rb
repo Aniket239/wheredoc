@@ -21,13 +21,12 @@ class ApplicationController < ActionController::Base
 
   def current_user
     p "======================== current user ================================="
-    if cookies.encrypted[:user_id].present?
-      @current_user_email ||= Employee.find_by(id: cookies.encrypted[:user_id])&.employee_email
-      p @current_user_email
-    end
+    @current_user ||= Employee.find_by(id: cookies.encrypted[:user_id])
+    p@current_user_email = @current_user&.employee_email
     p "======================== current user ================================="
-    @current_user_email
+    @current_user
   end
+  
   
 
   def logged_in?

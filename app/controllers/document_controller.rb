@@ -2,9 +2,11 @@ class DocumentController < ApplicationController
   def index
   end
   def alldocuments
-    @documents = Document.includes(:department, :employee).all
-
+    @documents = Document.includes(:department, :employee)
+                         .where(employees: { id: current_user&.id })
+    p @documents                     
   end
+  
 
   def new
     # @unique_departments = Department.select(:name).distinct.pluck(:name)
