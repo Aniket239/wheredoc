@@ -6,26 +6,29 @@ class ApplicationController < ActionController::Base
   private
 
   def log_in(employee)
-    p "======================== cookies ========================================"
-    cookies[:user_id] = employee.id
-    p cookies[:user_id]
-    p "============================= cookies ==================================="
+    p "======================== cookies.encrypted ========================================"
+    cookies.encrypted[:user_id] = employee.id
+    p cookies.encrypted[:user_id]
+    p "============================= cookies.encrypted ==================================="
   end
 
   def log_out
-    p "======================== cookies logout ================================="
+    p "======================== cookies.encrypted logout ================================="
     cookies.delete(:user_id)
-    p "======================== cookies logout ================================="
+    p "======================== cookies.encrypted logout ================================="
     @current_user = nil
   end
 
   def current_user
     p "======================== current user ================================="
-    @current_user_email ||= Employee.find_by(id: cookies[:user_id])&.employee_email if cookies[:user_id].present?
-    p @current_user_email
+    if cookies.encrypted[:user_id].present?
+      @current_user_email ||= Employee.find_by(id: cookies.encrypted[:user_id])&.employee_email
+      p @current_user_email
+    end
     p "======================== current user ================================="
     @current_user_email
   end
+  
 
   def logged_in?
     current_user.present?
