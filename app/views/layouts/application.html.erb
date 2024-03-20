@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <% unless controller_name == 'setup' && (action_name == 'login' || action_name == 'signup') %>
+    <% if !(controller_name == 'setup' && (action_name == 'login' || action_name == 'signup' || action_name=='employees' || action_name=='index' && !logged_in?)) %>
     <%= render 'layouts/navbar' %>
   <% end %>
   <%= yield %>
