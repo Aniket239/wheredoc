@@ -1,5 +1,5 @@
 class SetupController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:login, :signup, :create, :update]
+  skip_before_action :authenticate_user!, only: [:index, :login, :signup, :create, :update]
 
   def index
   end

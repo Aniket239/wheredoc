@@ -11,9 +11,9 @@
   </head>
 
   <body>
-    <% if !(controller_name == 'setup' && (action_name == 'login' || action_name == 'signup' || action_name=='employees' || logged_in? || request.path != root_path)) %>
+    <% if !(controller_name == 'setup' && (action_name == 'login' || action_name == 'signup' || action_name=='employees' || logged_in? || request.path == root_path)) %>
     <%= render 'layouts/navbar_logout' %>
-    <% else %>
+    <% elsif !(controller_name == 'setup'&&(action_name == 'login')||(action_name == 'signup')) %>
     <%= render 'layouts/navbar_login'%>
   <% end %>
   <%= yield %>
