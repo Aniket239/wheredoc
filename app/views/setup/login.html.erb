@@ -7,6 +7,7 @@
         /* White text color */
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
@@ -17,6 +18,7 @@
         background-color: #121212;
         /* Slightly lighter dark shade for contrast */
         padding: 20px;
+        margin: 25% 0 10% 0;
         border-radius: 8px;
         width: 30%;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -26,21 +28,22 @@
     .login_container h2 {
         text-align: center;
         color: #76ff03;
-        /* Bright color for headings */
+        margin: 2% 0 5% 0;
     }
 
     .login_container div {
         margin-bottom: 15px;
     }
 
-    label {
+    .login_container label {
         display: block;
-        margin-bottom: 5px;
+        margin: 0 5% 1% 2.5%;
     }
 
-    input[type="text"],
+    .login_container input[type="text"],
     input[type="password"] {
-        width: calc(100% - 20px);
+        width: 90%;
+        margin: 0 5% 0 2.5%;
         padding: 10px;
         border: 1px solid #fff;
         /* White border for inputs */
@@ -49,23 +52,27 @@
         border-radius: 4px;
     }
 
-    .buttons{
-        width: 101.5%;
+    .login_container .buttons{
+        width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content:center;
         align-items: center;
     }
-    a{
+    .login_container  a{
         text-decoration: none;
-        color: #fff; /* White text */
-        width: 100%;
+        color: #0095ff; /* White text */
+        width: 30%;
         text-align: center;
+        transition: all 0.3s ease-in-out;
     }
-    input[type="submit"],.signup_button {
-        width: 50%;
+    .login_container a:hover{
+        color: aqua;
+    }
+    .login_container input[type="submit"] {
+        width: 30%;
         height: 40px;
-        margin: 20px 5px 0 0;
+        margin: 20px 5px 10px 0;
         border: none;
         border-radius: 5px;
         background-color: #1E90FF; /* Stylish blue */
@@ -78,7 +85,7 @@
         align-items: center;
     }
     
-    input[type="submit"]:hover,.signup_button:hover {
+    .login_container input[type="submit"]:hover {
         background-color: #4169E1; /* Darker blue on hover */
     }
 </style>
@@ -96,7 +103,7 @@
         </div>
         <div class="buttons">
             <%= submit_tag("Login") %>
-                <%= link_to "Signup" , setup_signup_url, class:"signup_button" %>
+            <p>Already an user? <%= link_to "Signup" , setup_signup_url, class:"signup_button" %></p>
         </div>
         <% end %>
 </div>
