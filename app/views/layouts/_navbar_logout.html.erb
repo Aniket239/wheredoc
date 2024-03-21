@@ -1,24 +1,23 @@
 <nav>
-    <ul>
-      <li> <%= @current_user&.employee_name%></li>
-      <li>
-        <%= link_to root_path do %>
-          <span class="material-symbols-outlined">home</span>
-          home
+  <ul>
+    <li><p>Employee Name: <%= current_user.employee_name %></p></li>
+    <li>
+      <%= link_to root_path do %>
+        <span class="material-symbols-outlined">home</span>
+        home
         <%end %>
-      </li>
-      <li>
-        <%= link_to document_index_path do %>
-          <span class="material-symbols-outlined">description</span>
-          Documents
+    </li>
+    <li>
+      <%= link_to document_index_path do %>
+        <span class="material-symbols-outlined">description</span>
+        Documents
         <% end %>
-      </li>
-      <li>
-        <%= link_to setup_logout_path do %>
-          <span class="material-symbols-outlined"> logout </span>
-          Logout
+    </li>
+    <li>
+      <%= link_to setup_logout_path do %>
+        <span class="material-symbols-outlined"> logout </span>
+        Logout
         <% end %>
-      </li>
-    </ul>
-  </nav>
-  
+    </li>
+  </ul>
+</nav>

@@ -22,9 +22,7 @@ class SetupController < ApplicationController
   def login
    email=params[:email]
    password=params[:password]
-   p "============== employee =================="
-   p employee = Employee.find_by(employee_email: email)
-   p "================== employee =============="
+   employee = Employee.find_by(employee_email: email)
    if employee!=nil && employee.employee_password==password
       log_in(employee)
       redirect_to document_index_path

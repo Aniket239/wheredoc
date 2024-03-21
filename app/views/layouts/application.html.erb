@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <% if !(controller_name == 'setup' && (action_name == 'login' || action_name == 'signup'))&& logged_in? %>
+    <% if !(controller_name == 'setup' && (action_name == 'login' || action_name == 'signup'  ))&& logged_in? %>
         <%= render 'layouts/navbar_logout' %>
     <% elsif !(controller_name == 'setup'&&(action_name == 'login'||action_name == 'signup')) && !logged_in? %>
         <%= render 'layouts/navbar_login'%>
