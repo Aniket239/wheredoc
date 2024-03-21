@@ -1,11 +1,15 @@
 <style>
-/* Dark AMOLED Theme with Stylish Elements */
-body, html {
+/* Light Theme with Modern Elements */
+body {
     margin: 0;
     padding: 0;
-    background-color: #000; /* Pure black for AMOLED */
-    color: #fff; /* White text */
+    background-color: #ffffff; /* Light grey background */
+    color: #333; /* Dark grey text */
     font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .signup_container {
@@ -13,78 +17,75 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 80vh;
+    border-radius: 24px;
     padding: 20px;
+    margin: 3% 0 2% 0;
+    width: 35%;
+    background-color: #f0f2f5;
 }
 
 .signup_container h2 {
-    color: #FFFFFF;
+    color: #333;
+    margin: 5% 0 3% 0;
 }
 
-label {
-    margin-top: 10px;
+.signup_container label {
+    margin: 3px 0 5px -12.5%;
+    color: #333; /* Dark text color for readability */
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], .select {
-    width: 100%;
+.signup_container input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], .select {
+    width: 120%;
     padding: 10px;
-    margin-top: 3px;
-    margin-bottom: 10px;
-    border: none;
+    margin: 3px 0 6% -13%;
+    border: 1px solid #ccc; /* Light grey border */
     border-radius: 5px;
-    background-color: #333; /* Darker element background */
-    color: #fff; /* White input text */
-    border: 1px solid #fff; /* White border */
+    background-color: #fff; /* White background for input fields */
+    color: #333; /* Dark text for inputs */
 }
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.signup_container .select{
+    width:127%;
 }
 
-.buttons{
-    width: 108%;
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-    align-items: center;
-}
-a{
-    text-decoration: none;
-    color: #fff; /* White text */
+.signup_container .buttons{
     width: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-input[type="submit"],.login_button {
-    width: 50%;
-    height: 40px;
-    margin: 20px 5px 0 0;
-    border: none;
+
+.signup_container a {
+    text-decoration: none;
+    color: #007bff; /* Bootstrap primary blue for links */
+    margin: 15px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.signup_container a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.signup_container input[type="submit"] {
+    width: 30%;
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #007bff; /* Border color same as link */
     border-radius: 5px;
-    background-color: #1E90FF; /* Stylish blue */
+    background-color: #007bff; /* Bootstrap primary blue for buttons */
     color: #fff; /* White text */
     cursor: pointer;
-    border: 2px solid #fff; /* White border */
     transition: background-color 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-input[type="submit"]:hover,.login_button:hover {
-    background-color: #4169E1; /* Darker blue on hover */
+.signup_container input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
-#error_message p {
-    color: #FF6347; /* Tomato for errors */
+.signup_container #error_message p {
+    color: #dc3545; /* Bootstrap danger color for errors */
     margin-top: 10px;
-}
-
-/* Shake animation for error */
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-    20%, 40%, 60%, 80% { transform: translateX(10px); }
 }
 
 .shake {
@@ -93,6 +94,7 @@ input[type="submit"]:hover,.login_button:hover {
     backface-visibility: hidden;
     perspective: 1000px;
 }
+
 
 </style>
 <div class="signup_container">
@@ -127,7 +129,7 @@ input[type="submit"]:hover,.login_button:hover {
         </div>
         <div class="buttons">
             <%= submit_tag("Signup") %>
-            <%= link_to "Login", setup_login_url,class:"login_button" %>
+            <p>Already an user? <%= link_to "Login", setup_login_url,class:"login_button" %></p>
         </div>
         <% end %>
 </div>
