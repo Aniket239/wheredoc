@@ -2,10 +2,22 @@
 <nav>
     <ul>
       <li> <%= @current_user&.employee_name%></li>
-      <li><span class="material-symbols-outlined">home</span><%= link_to 'Home', root_path %></li>
-      <li><span class="material-symbols-outlined"> logout </span><%= link_to 'Logout', setup_logout_path %></li>
-      <li><span class="material-symbols-outlined">description</span><%= link_to 'Documents', document_index_path %></li>
-      <!-- Add more navigation links as needed -->
-    </ul>
+      <li><%= link_to root_path do %>
+        <span class="material-symbols-outlined">home</span>
+        home
+        <%end %>
+      </li>
+      <li><%= link_to setup_logout_path do %>
+        <span class="material-symbols-outlined"> logout </span>
+        Logout
+      <% end %>
+      </li>
+      <li>
+        <%= link_to document_index_path do %>
+          <span class="material-symbols-outlined">description</span>
+          Documents
+        <% end %>
+      </li>
+          </ul>
   </nav>
   
