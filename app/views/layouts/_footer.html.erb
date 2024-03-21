@@ -1,20 +1,48 @@
 <style>
+    footer{
+        bottom: 0;
+        background-color: #333; /* Dark background for contrast */
+        color: #f0f0f0; /* Light text for readability */
+        width: 100%;
+        text-align: left;
+    }
     .footer-container {
-        background-color: #2a2a2a;
-        color: #ffffff;
-        padding: 20px 0;
-        font-family: Arial, sans-serif;
+        padding: 40px 0; /* More padding for a spacious look */
+        font-family: 'Segoe UI', Arial, sans-serif; /* Modern font */
+        display: flex;
+        justify-content: space-around;
+        margin: 0 0 0 5%;
     }
     
     .footer-section {
         width: 20%;
         float: left;
         padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-section a {
+        color: #ffffff; /* Subtle text color for links */
+        text-decoration: none;
+        line-height: 2;
+        display: block;
+        transition: color 0.3s ease;
+        margin-top: -7px;
+    }
+    
+    .footer-section a:hover {
+        color: #cccccc; /* Bright color for hover */
+        text-decoration: none; /* No underline to keep it clean */
+    }
+    .footer-contact{
+        display: flex;
+        flex-direction: row;
     }
     
     .footer-section h4 {
-        color: #ffffff;
-        margin-bottom: 15px;
+        color: #ffffff; /* Bright text for headers */
+        margin-bottom: 20px; /* More space below headers */
+        font-size: 18px; /* Larger text for headers */
     }
     
     .footer-section ul {
@@ -24,46 +52,47 @@
     }
     
     .footer-section ul li a {
-        color: #bbbbbb;
+        color: #cccccc; /* Subtle text color for links */
         text-decoration: none;
-        line-height: 2.5;
+        line-height: 2;
         display: block;
+        transition: color 0.3s ease; /* Smooth color transition for hover */
     }
     
     .footer-section ul li a:hover {
-        color: #ffffff;
-        text-decoration: underline;
+        color: #ffffff; /* Bright color for hover */
+        text-decoration: none; /* No underline to keep it clean */
     }
     
     .footer-bottom {
         clear: both;
         text-align: center;
-        padding: 10px 0;
-        border-top: 1px solid #444444;
+        padding: 20px 0;
+        border-top: 1px solid #444; /* Subtle border top */
         margin-top: 20px;
     }
     
     .social-links a {
         display: inline-block;
-        margin-right: 10px;
+        margin: 0 10px 0 -2px;
     }
     
     .social-links img {
-        width: 20px;
-        height: 20px;
-        opacity: 0.8;
+        width: 30px; /* Smaller icons for a cleaner look */
+        height: 30px;
+        opacity: 0.8; /* Slightly transparent icons */
         transition: opacity 0.3s ease;
     }
     
     .social-links img:hover {
-        opacity: 1;
+        opacity: 1; /* Full opacity on hover */
     }
     
     @media screen and (max-width: 768px) {
         .footer-section {
             width: 50%;
             float: none;
-            margin-bottom: 20px;
+            padding-bottom: 20px; /* Space below each section */
         }
     
         .footer-section h4 {
@@ -78,8 +107,10 @@
     @media screen and (max-width: 480px) {
         .footer-section {
             width: 100%;
+            padding-bottom: 10px;
         }
     }
+    
     
 </style>
 
@@ -87,29 +118,28 @@
     <div class="footer-container">
         <div class="footer-section">
             <h4>Contact Us</h4>
-            <p>+1 234 567 8900</p>
-            <p>support@tracemydoc.com</p>
-            <p>1234 Street Name, City, Country</p>
+            <div class="footer-contact" ><span class="material-symbols-outlined">mail</span><a href="mailto:support@tracemydoc.com">support@tracemydoc.com</a></div>
+            <div class="footer-contact" ><span class="material-symbols-outlined">location_on</span><p>1234 Street Name, City, Country</p></div>
         </div>
 
         <div class="footer-section">
-            <h4>Quick Links</h4>
+             <h4>Quick Links</h4>
             <ul>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/features">Features</a></li>
-                <li><a href="/pricing">Pricing</a></li>
-                <li><a href="/testimonials">Testimonials</a></li>
-                <li><a href="/faq">FAQ</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">FAQ</a></li>
             </ul>
         </div>
 
         <div class="footer-section">
             <h4>Support</h4>
             <ul>
-                <li><a href="/support">Help Center</a></li>
-                <li><a href="/docs">Documentation</a></li>
-                <li><a href="/tutorials">Tutorials</a></li>
-                <li><a href="/community">Community</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Tutorials</a></li>
+                <li><a href="#">Community</a></li>
             </ul>
         </div>
 
@@ -118,16 +148,15 @@
             <ul>
                 <li><a href="/terms">Terms of Service</a></li>
                 <li><a href="/privacy">Privacy Policy</a></li>
-                <li><a href="/security">Security</a></li>
             </ul>
         </div>
 
         <div class="footer-section">
             <h4>Follow Us</h4>
             <div class="social-links">
-                <a href="#"><img src="/icons/facebook.svg" alt="Facebook"></a>
-                <a href="#"><img src="/icons/twitter.svg" alt="Twitter"></a>
-                <a href="#"><img src="/icons/linkedin.svg" alt="LinkedIn"></a>
+                <a href="https://www.facebook.com/login/"><img width="144" height="144" src="https://img.icons8.com/color/144/facebook-new.png" alt="facebook-new"/></a>
+                <a href="https://twitter.com/i/flow/login"><img width="150" height="150" src="https://img.icons8.com/ios-filled/150/twitterx--v1.png" alt="twitterx--v1"/></a>
+                <a href="https://www.linkedin.com/login"><img width="144" height="144" src="https://img.icons8.com/fluency/144/linkedin.png" alt="linkedin"/></a>
             </div>
         </div>
     </div>
