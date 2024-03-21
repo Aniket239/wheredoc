@@ -1,0 +1,138 @@
+<style>
+    .footer-container {
+        background-color: #2a2a2a;
+        color: #ffffff;
+        padding: 20px 0;
+        font-family: Arial, sans-serif;
+    }
+    
+    .footer-section {
+        width: 20%;
+        float: left;
+        padding: 0 20px;
+    }
+    
+    .footer-section h4 {
+        color: #ffffff;
+        margin-bottom: 15px;
+    }
+    
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-section ul li a {
+        color: #bbbbbb;
+        text-decoration: none;
+        line-height: 2.5;
+        display: block;
+    }
+    
+    .footer-section ul li a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+    
+    .footer-bottom {
+        clear: both;
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid #444444;
+        margin-top: 20px;
+    }
+    
+    .social-links a {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    
+    .social-links img {
+        width: 20px;
+        height: 20px;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+    
+    .social-links img:hover {
+        opacity: 1;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .footer-section {
+            width: 50%;
+            float: none;
+            margin-bottom: 20px;
+        }
+    
+        .footer-section h4 {
+            text-align: center;
+        }
+    
+        .footer-section ul {
+            text-align: center;
+        }
+    }
+    
+    @media screen and (max-width: 480px) {
+        .footer-section {
+            width: 100%;
+        }
+    }
+    
+</style>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p>+1 234 567 8900</p>
+            <p>support@tracemydoc.com</p>
+            <p>1234 Street Name, City, Country</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/features">Features</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/testimonials">Testimonials</a></li>
+                <li><a href="/faq">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="/support">Help Center</a></li>
+                <li><a href="/docs">Documentation</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/community">Community</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="/terms">Terms of Service</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/security">Security</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+                <a href="#"><img src="/icons/facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="/icons/twitter.svg" alt="Twitter"></a>
+                <a href="#"><img src="/icons/linkedin.svg" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2023 TraceMyDoc - All rights reserved.</p>
+    </div>
+</footer>
