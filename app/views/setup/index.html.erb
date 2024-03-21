@@ -101,6 +101,7 @@
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
+            margin: 5%;
         }
 
         .demo-section {
@@ -108,7 +109,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 30%;
+            width: 25%;
             text-align: center;
         }
 
@@ -167,14 +168,25 @@
         .faq-section {
             background-color: #f3f3f3;
             padding: 20px;
-            width: 40%;
+            width: 30%;
         }
-
+        .demo-faq .faq-section h2{
+            margin-left: 5px;
+        }
         .faq-question {
             background-color: #e1e1e1;
             margin: 5px 0;
             padding: 10px;
             cursor: pointer;
+            text-align: left;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .material-symbols-outlined {
+            align-items: end;
         }
 
         .faq-answer {
@@ -223,7 +235,60 @@ mobile devices. Managing paperwork wasn’t this easy.</pre>
             alt="Document Management">
     </section>
     <div class="demo-faq">
-        
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2><br>
+            <div class="faq">
+                <div class="faq-question" onclick="toggleFaq(0)">
+                    <div><strong>01.</strong> I need to download any software? How does TraceMyDoc work?</div><span
+                        class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">No. TraceMyDoc is a cloud based solution. With an internet connection you can
+                    use the software from any device.</div>
+            </div>
+            <div class="faq">
+                <div class="faq-question" onclick="toggleFaq(1)">
+                    <div><strong>02.</strong> My staff has minimum computer knowledge. Will he be able to use the
+                        software?</div><span class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">TraceMyDoc is extremely user friendly. Users with almost no computer knowledge
+                    can work on our software. Also, our implementation team will give hands on training to all your
+                    staff.</div>
+            </div>
+            <div class="faq">
+                <div class="faq-question" onclick="toggleFaq(2)">
+                    <div><strong>03.</strong> Will it take time to start using the system? How do I feed all the item
+                        list and stock data?</div><span class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">It usually takes only couple of weeks to get started. Our team will assist you
+                    in migrating all your data with an easy excel import feature. There is no need for manual data
+                    entry.</div>
+            </div>
+            <div class="faq">
+                <div class="faq-question" onclick="toggleFaq(3)">
+                    <div><strong>04.</strong> How is the software priced? Is it very expensive?</div><span
+                        class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">Not at all. There is no one time huge investment. No additional infrastructure
+                    cost. Just an affordable monthly subscription based on number of business divisions. Oh and also
+                    there is no limit to the number of users.</div>
+            </div>
+            <div class="faq">
+                <div class="faq-question" onclick="toggleFaq(4)">
+                    <div><strong>05.</strong> What about software updates? Is it chargeable?</div><span
+                        class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">We are continuously releasing updates. And the best part is, it is free. All
+                    future improvements will come at no additional cost.</div>
+            </div>
+            <div class="faq">
+                <div class="faq-question" onclick="toggleFaq(5)">
+                    <div><strong>06.</strong> Is my data safe?</div><span class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">Our servers are hosted within Amazon's secure data centres with multiple data
+                    backups. Which means, your data is really safe.</div>
+            </div>
+
+        </section>
         <section class="demo-section">
             <h2>Request a Demo</h2>
             <p>Experience the future of document management.</p>
@@ -254,22 +319,11 @@ mobile devices. Managing paperwork wasn’t this easy.</pre>
                 </div>
                 <% end %>
         </section>
-        <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq">
-                <div class="faq-question" onclick="toggleFaq(0)">What is document management?</div>
-                <div class="faq-answer">Document management is a system used to receive, track, manage, and store documents.
-                </div>
-            </div>
-            <div class="faq">
-                <div class="faq-question" onclick="toggleFaq(1)">How secure is our document management system?</div>
-                <div class="faq-answer">Our system ensures high-level security with encryption and compliance with industry standards.</div>
-            </div>
-        </section>
+
     </div>
-    
+
     <footer>
-        <p>&copy; 2023 Trace My Doc</p>
+        <p>&copy; 2023 TraceMyDoc</p>
     </footer>
 
     <script>
