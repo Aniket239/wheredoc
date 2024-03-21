@@ -1,10 +1,69 @@
+<style>
+/* AMOLED-friendly Navbar Styles */
+nav {
+  background-color: #000; /* Pure black background for AMOLED */
+  color: #fff; /* White text color for contrast */
+  padding: 10px 0;
+  font-family: "Roboto Mono", monospace;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+nav ul li {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li p,
+nav ul li a {
+  color: #fff; /* White text for readability */
+  text-decoration: none;
+  display: inline-block;
+}
+
+nav ul li a {
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #333; /* Dark gray for hover effect */
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
+  padding-right: 5px;
+}
+</style>
+
 <nav>
   <ul>
-    <li><p>Employee Name: <%= current_user.employee_name %></p></li>
+    <li>
+      <span class="material-symbols-outlined">
+          person
+        </span>
+        <p>Welcome, <strong><%= current_user.employee_name %></strong></p>
+    </li><br><li></li><br><li></li><br><br>
+    <li>
+      <%= link_to setup_index_path do %>
+        <span class="material-symbols-outlined">token</span>
+        <p>Setup</p>
+        <% end %>
+    </li>
     <li>
       <%= link_to root_path do %>
         <span class="material-symbols-outlined">home</span>
-        home
+        Home
         <%end %>
     </li>
     <li>

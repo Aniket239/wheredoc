@@ -1,9 +1,49 @@
-<!-- app/views/layouts/_navbar.html.erb -->
+<style>
+nav {
+    background-color: #000; /* Black background for AMOLED */
+    color: #fff; /* White text color */
+    padding: 10px 0; /* Compact vertical padding */
+    font-family: "Roboto Mono", monospace;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Align items in a row */
+    justify-content: space-around; /* Even spacing */
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    color: #fff; /* White text color */
+    text-decoration: none;
+    padding: 5px 15px; /* Compact padding */
+    display: inline-flex; /* Align text and icon */
+    align-items: center; /* Center align items */
+}
+
+.material-symbols-outlined {
+    font-size: 20px; /* Icon size */
+    margin-right: 8px; /* Space between icon and text */
+}
+
+nav a:hover {
+    background-color: #333; /* Slightly lighter black for hover effect */
+    border-radius: 5px; /* Rounded corners for hover effect */
+}
+
+</style>
+
+
 <nav>
     <ul>
         <li><%= link_to root_path do %>
             <span class="material-symbols-outlined">home</span>
-            home
+            Home
             <%end %>
         </li>
         <li><%= link_to setup_login_path do%>
