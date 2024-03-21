@@ -1,7 +1,289 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <body>
     <%= link_to "Setup", setup_employees_url%>
     <%= link_to 'Personnels'%>
     <%= link_to 'Departments', department_index_url %>
     <%= link_to 'Company',   company_index_url %>
+
+    
+</body> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document Management System</title>
+    <style>
+        nav {
+            background-color: hsl(0, 0%, 0%);
+            color: #fff;
+            padding: 10px 0;
+            font-family: "Roboto Mono", monospace;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav li {
+            display: inline-block;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 15px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .material-symbols-outlined {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .image-section {
+            margin-top: 5%;
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+            z-index: -5;
+        }
+
+        .image-section h1 {
+            font-size: 80px;
+        }
+
+        .image-section sup {
+            font-size: medium;
+        }
+
+        .image-section h2 {
+            font-size: 30px;
+            margin-left: 1%;
+        }
+
+        .image-section pre {
+            font-size: 20px;
+            margin-left: 1%;
+            font-weight: 500;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .image-section img {
+            height: 50%;
+            width: 35%;
+            height: auto;
+            display: block;
+            z-index: -100;
+        }
+
+        .demo-faq {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .demo-section {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+        }
+
+        .demo-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .demo-section p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .demo-section form {
+            margin-top: 20px;
+        }
+
+        .demo-section div {
+            margin-bottom: 15px;
+        }
+
+        .demo-section label {
+            display: block;
+            text-align: left;
+            margin: 0 0 5px 2px;
+            color: #333;
+        }
+
+        .demo-section input[type="text"],
+        .demo-section input[type="email"],
+        .demo-section input[type="tel"],
+        .demo-section textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            /* Make sure padding doesn't affect width */
+        }
+
+        .demo-section input[type="submit"] {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .demo-section input[type="submit"]:hover {
+            background-color: #003d7a;
+        }
+
+
+        .faq-section {
+            background-color: #f3f3f3;
+            padding: 20px;
+            width: 40%;
+        }
+
+        .faq-question {
+            background-color: #e1e1e1;
+            margin: 5px 0;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            background-color: #d1d1d1;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>
+                <%= link_to root_path do %>
+                    <span class="material-symbols-outlined">home</span>
+                    Home
+                    <%end %>
+            </li>
+            <li>
+                <%= link_to setup_login_path do%>
+                    <span class="material-symbols-outlined">login</span>
+                    Login
+                    <% end %>
+            </li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </nav>
+    <section class="image-section">
+        <div class="text">
+            <h1>TraceMyDoc<sup>TM</sup></h1><br>
+            <h2>OMIT YOUR PAPERWORK WOES</h2><br>
+            <pre>TracemyDoc is a cloud based paperwork management application,
+specially designed to manage the flow, storage, retrieval of documents,
+with every document's handoff history accessible from all desktop and
+mobile devices. Managing paperwork wasn’t this easy.</pre>
+        </div>
+        <img src="https://img.freepik.com/free-vector/duplicate-concept-illustration_114360-4010.jpg?w=740&t=st=1711006560~exp=1711007160~hmac=1bd4f7cc0cbb6b123a711524c256d4f541fafa7c959bb358f243a44c395903ea"
+            alt="Document Management">
+    </section>
+    <div class="demo-faq">
+        
+        <section class="demo-section">
+            <h2>Request a Demo</h2>
+            <p>Experience the future of document management.</p>
+
+            <%= form_tag( method: :post) do %>
+                <div>
+                    <%= label_tag :name, "Name" %>
+                        <%= text_field_tag :name, nil, placeholder: "Your Name" %>
+                </div>
+
+                <div>
+                    <%= label_tag :email, "Email" %>
+                        <%= email_field_tag :email, nil, placeholder: "Your Email" %>
+                </div>
+
+                <div>
+                    <%= label_tag :number, "Phone Number" %>
+                        <%= telephone_field_tag :number, nil, placeholder: "Your Phone Number" %>
+                </div>
+
+                <div>
+                    <%= label_tag :remarks, "Remarks" %>
+                        <%= text_area_tag :remarks, nil, placeholder: "Your Remarks" %>
+                </div>
+
+                <div>
+                    <%= submit_tag "Request Demo" %>
+                </div>
+                <% end %>
+        </section>
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq">
+                <div class="faq-question" onclick="toggleFaq(0)">What is document management?</div>
+                <div class="faq-answer">Document management is a system used to receive, track, manage, and store documents.
+                </div>
+            </div>
+            <div class="faq">
+                <div class="faq-question" onclick="toggleFaq(1)">How secure is our document management system?</div>
+                <div class="faq-answer">Our system ensures high-level security with encryption and compliance with industry standards.</div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Trace My Doc</p>
+    </footer>
+
+    <script>
+        function toggleFaq(index) {
+            const answers = document.querySelectorAll('.faq-answer');
+            if (answers[index].style.display === 'block') {
+                answers[index].style.display = 'none';
+            } else {
+                answers.forEach(answer => answer.style.display = 'none');
+                answers[index].style.display = 'block';
+            }
+        }
+
+    </script>
 </body>
+
+</html>
