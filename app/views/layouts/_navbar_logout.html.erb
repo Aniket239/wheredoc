@@ -1,16 +1,11 @@
-<!-- app/views/layouts/_navbar.html.erb -->
 <nav>
     <ul>
       <li> <%= @current_user&.employee_name%></li>
-      <li><%= link_to root_path do %>
-        <span class="material-symbols-outlined">home</span>
-        home
+      <li>
+        <%= link_to root_path do %>
+          <span class="material-symbols-outlined">home</span>
+          home
         <%end %>
-      </li>
-      <li><%= link_to setup_logout_path do %>
-        <span class="material-symbols-outlined"> logout </span>
-        Logout
-      <% end %>
       </li>
       <li>
         <%= link_to document_index_path do %>
@@ -18,6 +13,12 @@
           Documents
         <% end %>
       </li>
-          </ul>
+      <li>
+        <%= link_to setup_logout_path do %>
+          <span class="material-symbols-outlined"> logout </span>
+          Logout
+        <% end %>
+      </li>
+    </ul>
   </nav>
   

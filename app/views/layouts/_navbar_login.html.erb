@@ -1,9 +1,17 @@
 <!-- app/views/layouts/_navbar.html.erb -->
 <nav>
     <ul>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'Login', setup_login_path %></li>
-      <!-- Add more navigation links as needed -->
+        <li><%= link_to root_path do %>
+            <span class="material-symbols-outlined">home</span>
+            home
+            <%end %>
+        </li>
+        <li><%= link_to setup_login_path do%>
+            <span class="material-symbols-outlined">login</span>
+            Login
+            <% end %>
+        </li>
+        <!-- Add more navigation links as needed -->
     </ul>
   </nav>
   

@@ -6,24 +6,18 @@ class ApplicationController < ActionController::Base
   private
 
   def log_in(employee)
-    p "======================== cookies.encrypted ========================================"
     cookies.encrypted[:user_id] = employee.id
-    p cookies.encrypted[:user_id]
-    p "============================= cookies.encrypted ==================================="
+    cookies.encrypted[:user_id]
   end
 
   def log_out
-    p "======================== cookies.encrypted logout ================================="
     cookies.delete(:user_id)
-    p "======================== cookies.encrypted logout ================================="
     @current_user = nil
   end
 
   def current_user
-    p "======================== current user ================================="
     @current_user ||= Employee.find_by(id: cookies.encrypted[:user_id])
-    p@current_user_email = @current_user&.employee_email
-    p "======================== current user ================================="
+    @current_user_email = @current_user&.employee_email
     @current_user
   end
   
@@ -35,7 +29,6 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless logged_in?
-      p "======================== redirect to login ============================="
       redirect_to setup_login_path
     end
   end
