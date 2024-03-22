@@ -16,13 +16,13 @@ body {
     background-color: #fff; /* White background */
     padding: 20px;
     border-radius: 8px;
-    width: 30%;
+    width: 25%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
-    margin: auto; /* Center the container on the page */
+    margin: 25% 0 10% 0; /* Center the container on the page */
 }
 
 /* Style adjustments for form elements */
-.login_container h2 {
+.login_container h1 {
     text-align: center;
     color: #0a0a0a; /* Darker text color for title */
     margin: 2% 0 5% 0;
@@ -89,7 +89,7 @@ body {
 </style>
 
 <div class="login_container">
-    <h2>Login</h2>
+    <h1>Login</h1>
     <%= form_tag('/setup/login', method: "post" ) do %>
         <div>
             <%= label_tag(:email, "Email:" ) %>
