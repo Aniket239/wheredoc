@@ -1,15 +1,102 @@
 <style>
+body{
+    font-family: 'Segoe UI', Arial, sans-serif; /* Modern font */
+
+}
+.document{
+    width: 90%;
+    margin: 2% 5%;
+    text-align: left;
+}
+
+.document .all-menu{
+    background-color: aliceblue;
+    margin: 2% 0;
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    border-radius: 12px;
+}
+.document .all-menu .movement{
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 1% 1.5% 3% 1.5%;
+    padding: 1% 0 3% 0;
+    border-radius: 6px;
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.document h2{
+    margin: 0 0 5% 10%;
+}
+
+.document a{
+    text-decoration: none;
+    font-size: large;
+    color: black;
+    font-weight: 500;
+}
+
+.document .movement a {
+    display: block; 
+    padding: 3% 0 3% 10%; 
+    color: #525252; 
+    font-weight: 600; 
+    transition: all 0.3s ease; 
+    text-decoration: none;
+}
+
+.document .movement a:hover,
+.document .movement a:focus {
+    background-color: #d0e3ff; 
+    color: #024d8c; 
+    text-decoration: none; 
+    transform: translateY(-2px); 
+}
+
+.document .movement a:active {
+    transform: translateY(1px); 
+}
+
 
 </style>
 <div class="document">
     <h1>Document Setup</h1>
     <div class="all-menu">
         <div class="movement">
-            <h2>Movement</h2>
+            <h2>Movement</h2><hr><br>
             <%= link_to "All Documents" , document_alldocuments_path %>
-            <%= link_to "Pending Accept" , document_new_path %>
-            <%= link_to "Pending Forward" , document_new_path %>
+                <%= link_to "Pending Accept" , document_new_path %>
+                    <%= link_to "Pending Forward" , document_new_path %>
         </div>
-        <%= link_to "New Document" , document_new_path %>
+        <div class="movement">
+            <h2>Movement</h2><hr><br>
+            <%= link_to "All Documents" , document_alldocuments_path %>
+                <%= link_to "Pending Accept" , document_new_path %>
+                    <%= link_to "Pending Forward" , document_new_path %>
+        </div>
+        <div class="movement">
+            <h2>Movement</h2><hr><br>
+            <%= link_to "All Documents" , document_alldocuments_path %>
+                <%= link_to "Pending Accept" , document_new_path %>
+                    <%= link_to "Pending Forward" , document_new_path %>
+        </div>
+        <div class="movement">
+            <h2>Movement</h2><hr><br>
+            <%= link_to "All Documents" , document_alldocuments_path %>
+                <%= link_to "Pending Accept" , document_new_path %>
+                    <%= link_to "Pending Forward" , document_new_path %>
+        </div>
+        <div class="movement">
+            <h2>Admin</h2><hr><br>
+            <%= link_to "New Document" , document_new_path %>
+        </div>
+        <div class="movement">
+            <h2>Admin</h2><hr><br>
+            <%= link_to "New Document" , document_new_path %>
+        </div>
     </div>
 </div>
