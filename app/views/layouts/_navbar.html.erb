@@ -1,6 +1,6 @@
 <style>
   /* AMOLED-friendly Navbar Styles */
-  nav {
+  .navbar nav {
     background-color: #000;
     /* Pure black background for AMOLED */
     color: #fff;
@@ -9,118 +9,190 @@
     font-family: "Roboto Mono", monospace;
   }
 
-  nav ul {
+  .navbar nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
-  nav ul li {
+  .navbar nav .items {
+    display: flex;
+    flex-direction: row;
+    padding: 0 2%;
+  }
+
+  .navbar nav ul li {
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  nav ul li p,
-  nav ul li a {
+  .navbar nav ul li p,
+  .navbar nav ul li a {
     color: #fff;
     /* White text for readability */
     text-decoration: none;
     display: inline-block;
   }
 
-  nav ul li a {
+  .navbar nav ul li a {
     padding: 5px 10px;
     border-radius: 5px;
     transition: background-color 0.3s;
   }
-  .material-symbols-outlined {
+
+  .navbar nav .material-symbols-outlined {
     vertical-align: middle;
     padding-right: 5px;
   }
 
-  #account-btn {
+  .navbar #account-btn {
     cursor: pointer;
   }
 
-  .account {
+  .navbar .account {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     width: 20%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    text-align: left;
+    z-index: 100;
+    animation: account 0.2s ease-in-out;
   }
 
-  .account p {
+  @keyframes account {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .navbar .account h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+
+  .navbar .account p {
     margin: 5px 0;
   }
 
-  .user-id {
-    display: flex;
-    flex-direction: row;
+  .navbar .user-id p {
+    margin: 5px;
+    color: #555;
   }
 
-  .material-symbols-outlined {
+  .navbar .account a {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+
+  .navbar .account a span {
+    margin-right: 8px;
+  }
+
+  .navbar .account a:hover {
+    background-color: #c82333;
+  }
+
+  .navbar .user-id {
+    display: flex;
+    flex-direction: row;
+    background-color: #f7f7f7;
+    border-left: 5px solid #007bff;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .navbar .material-symbols-outlined {
     vertical-align: middle;
   }
 </style>
 
-<nav>
-  <ul>
-    <li>
-      <h2>TraceMyDoc</h2><sup>TM</sup>
-    </li>
-    <li>
-      <%= link_to document_alldocuments_path do %>
-        <span class="material-symbols-outlined">description</span>
-        Documents
-        <% end %>
-    </li>
-    <li>
-      <%= link_to do %>
-      <span class="material-symbols-outlined">arrow_forward</span>
-        Forward
-        <% end %>
-    </li>
-    <li>
-      <%= link_to document_index_path do %>
-        <span class="material-symbols-outlined">settings</span>
-        <% end %>
-    </li>
-    <li id="account-btn">
-      <span class="material-symbols-outlined">
-        person
-      </span>
-    </li>
-  </ul>
-</nav>
-<div class="account">
-  <h2><%= current_user.employee_name %></h2>
-  <p><%= current_user.employee_email %></p>
-  <div class="user-id">
-    <p>Department: </p>
-    <p><%= current_user.department %></p>
+<div class="navbar">
+  <nav>
+    <ul>
+      <div class="items">
+        <li>
+          <h2>TraceMyDoc</h2><sup>TM</sup>
+        </li>
+        <li>
+          <%= link_to document_alldocuments_path do %>
+            <span class="material-symbols-outlined">description</span>
+            Documents
+            <% end %>
+        </li>
+        <li>
+          <%= link_to do %>
+            <span class="material-symbols-outlined">arrow_forward</span>
+            Forward
+            <% end %>
+        </li>
+        <li>
+      </div>
+      <div class="items">
+        <li>
+          <%= link_to document_index_path do %>
+            <span class="material-symbols-outlined">settings</span>
+            <% end %>
+        </li>
+        <li id="account-btn">
+          <span class="material-symbols-outlined">
+            person
+          </span>
+        </li>
+      </div>
+    </ul>
+  </nav>
+  <div class="account">
+    <h2>
+      <%= current_user.employee_name %>
+    </h2>
+    <p>
+      <%= current_user.employee_email %>
+    </p>
+    <div class="user-id">
+      <p>Department: </p>
+      <p>
+        <%= current_user.department %>
+      </p>
+    </div>
+    <div class="user-id">
+      <p>User ID: </p>
+      <p>
+        <%= current_user.id %>
+      </p>
+    </div>
+    <div class="user-id">
+      <p>Mobile Numeber: </p>
+      <p>
+        <%= current_user.employee_mobile_number%>
+      </p>
+    </div>
+    <%= link_to setup_logout_path do %>
+      <span class="material-symbols-outlined"> logout </span>
+      signout
+      <% end %>
   </div>
-  <div class="user-id">
-    <p>User ID: </p>
-    <p><%= current_user.id %></p>
-  </div>
-  <div class="user-id">
-    <p>Mobile Numeber: </p>
-    <p><%= current_user.employee_mobile_number%></p>
-  </div>
-  <%= link_to setup_logout_path do %>
-    <span class="material-symbols-outlined"> logout </span>
-    signout
-    <% end %>
 </div>
 
 <script>
