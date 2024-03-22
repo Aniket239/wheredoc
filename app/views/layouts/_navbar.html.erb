@@ -1,0 +1,136 @@
+<style>
+  /* AMOLED-friendly Navbar Styles */
+  nav {
+    background-color: #000;
+    /* Pure black background for AMOLED */
+    color: #fff;
+    /* White text color for contrast */
+    padding: 10px 0;
+    font-family: "Roboto Mono", monospace;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  nav ul li {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav ul li p,
+  nav ul li a {
+    color: #fff;
+    /* White text for readability */
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  nav ul li a {
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .material-symbols-outlined {
+    vertical-align: middle;
+    padding-right: 5px;
+  }
+
+  #account-btn {
+    cursor: pointer;
+  }
+
+  .account {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 20%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .account p {
+    margin: 5px 0;
+  }
+
+  .user-id {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .material-symbols-outlined {
+    vertical-align: middle;
+  }
+</style>
+
+<nav>
+  <ul>
+    <li>
+      <h2>TraceMyDoc</h2><sup>TM</sup>
+    </li>
+    <li>
+      <%= link_to document_alldocuments_path do %>
+        <span class="material-symbols-outlined">description</span>
+        Documents
+        <% end %>
+    </li>
+    <li>
+      <%= link_to do %>
+      <span class="material-symbols-outlined">arrow_forward</span>
+        Forward
+        <% end %>
+    </li>
+    <li>
+      <%= link_to document_index_path do %>
+        <span class="material-symbols-outlined">settings</span>
+        <% end %>
+    </li>
+    <li id="account-btn">
+      <span class="material-symbols-outlined">
+        person
+      </span>
+    </li>
+  </ul>
+</nav>
+<div class="account">
+  <h2><%= current_user.employee_name %></h2>
+  <p><%= current_user.employee_email %></p>
+  <div class="user-id">
+    <p>Department: </p>
+    <p><%= current_user.department %></p>
+  </div>
+  <div class="user-id">
+    <p>User ID: </p>
+    <p><%= current_user.id %></p>
+  </div>
+  <div class="user-id">
+    <p>Mobile Numeber: </p>
+    <p><%= current_user.employee_mobile_number%></p>
+  </div>
+  <%= link_to setup_logout_path do %>
+    <span class="material-symbols-outlined"> logout </span>
+    signout
+    <% end %>
+</div>
+
+<script>
+  document.getElementById('account-btn').addEventListener('click', function () {
+    var accountDiv = document.querySelector('.account');
+    if (accountDiv.style.display === 'none' || accountDiv.style.display === '') {
+      accountDiv.style.display = 'block';
+    } else {
+      accountDiv.style.display = 'none';
+    }
+  });
+
+</script>

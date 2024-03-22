@@ -2,16 +2,12 @@ class DocumentController < ApplicationController
   def index
   end
   def alldocuments
-    @documents = Document.includes(:department, :employee)
-                         .where(employees: { id: current_user&.id })
+    @documents = Document.includes(:department, :employee).where(employees: { id: current_user&.id })
     p @documents                     
   end
   
 
   def new
-    # @unique_departments = Department.select(:name).distinct.pluck(:name)
-    # @unique_employees = Employee.select(:employee_name).distinct.pluck(:employee_name)
-
     @unique_departments = Department.department_list
     @unique_employees = Employee.employee_list
 

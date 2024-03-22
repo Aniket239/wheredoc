@@ -25,7 +25,7 @@ class SetupController < ApplicationController
    employee = Employee.find_by(employee_email: email)
    if employee!=nil && employee.employee_password==password
       log_in(employee)
-      redirect_to document_index_path
+      redirect_to document_alldocuments_path
    end
   end
   def logout
