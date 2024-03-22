@@ -36,4 +36,7 @@ class DocumentController < ApplicationController
     redirect_to document_alldocuments_path
   end
 
+  def accept
+    
+  end
 end

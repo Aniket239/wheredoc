@@ -55,5 +55,8 @@ Rails.application.routes.draw do
   post 'document/delete'
   get 'document/alldocuments'
   post 'document/alldocuments'
+  get 'document/accept'
+  post 'document/accept'
+
 
 end
