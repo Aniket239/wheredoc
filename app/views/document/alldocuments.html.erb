@@ -1,37 +1,89 @@
 <style>
+/* Base styling */
+.all-documents body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
 
+.all-documents h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 30px;
+}
+
+.all-documents .row {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.all-documents .row:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.all-documents .heading h2 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.all-documents .body {
+    line-height: 1.6;
+    color: #555;
+}
+
+.all-documents .body p {
+    margin: 5px 0;
+}
+
+.all-documents a {
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.all-documents a:hover {
+    background-color: #0056b3;
+}
+
+.all-documents a.reject {
+    background-color: #dc3545;
+}
+
+.all-documents a.reject:hover {
+    background-color: #c82333;
+}
 </style>
 
-<div>
+<div class="all-documents">
     <h1>All Documents</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>File No</th>
-                <th>Department</th>
-                <th>Document From</th>
-                <th>Amount</th>
-                <th>Approval From</th>
-                <th>Date</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
             <% @documents.each do |document| %>
-            <tr>
-              <td><%= document.id %></td>
-              <td><%= document.doc_id %></td>
-              <td><%= document.department&.name %></td>
-              <td><%= document.doc_name %></td>
-              <td><%= document.doc_amount %></td>
-              <td><%= document.employee&.employee_name %></td>
-              <td><%= document.submission_date %></td>
-              <td><%= link_to 'Accept' %></td>
-              <td><%= link_to 'Reject', document_delete_path(document), method: :delete %></td>
-            </tr>
+              <div class="row">
+                <div class="heading">
+                    <h2><%= document.doc_name %></h2>
+                </div>
+                <div class="body">
+                    <%= document.id %>
+                    <%= document.doc_id %>
+                    <%= document.department&.name %>
+                    <%= document.doc_amount %>
+                    <%= document.employee&.employee_name %>
+                    <%= document.submission_date %>
+                    <%= link_to 'Accept' %>
+                    <%= link_to 'Reject', document_delete_path(document), method: :delete %>
+                </div>
+            </div>
           <% end %>
-          
-        </tbody>
-    </table>
 </div>
